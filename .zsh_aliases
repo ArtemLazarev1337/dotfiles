@@ -1,5 +1,6 @@
 alias x='exit'
-alias c='clear'
+alias cls='clear'
+alias r='source .zshrc'
 
 alias ff='fastfetch'
 
