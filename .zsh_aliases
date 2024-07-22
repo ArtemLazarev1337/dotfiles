@@ -1,12 +1,12 @@
 alias x='exit'
 alias cls='clear'
-alias r='source .zshrc'
+alias r='source ~/.zshrc'
 
 alias ff='fastfetch'
 
-alias ls='lsd'
-alias la='lsd -A'
-alias lt='lsd --tree'
+alias ls='eza --icons'
+alias la='eza --icons -A'
+alias lt='eza --icons -T'
 
 alias ydmp4='yt-dlp -f bestvideo+bestaudio --merge-output-format mp4'
 alias ydmkv='yt-dlp -f bestvideo+bestaudio --merge-output-format mkv'
