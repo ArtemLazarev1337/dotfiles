@@ -14,3 +14,5 @@ alias ydmp3='yt-dlp -f bestaudio --extract-audio --audio-format mp3 --audio-qual
 alias ydflac='yt-dlp -f bestaudio --extract-audio --audio-format flac --audio-quality 0'
 
 alias cat='bat --plain'
+
+alias aic='ascii-image-converter'
