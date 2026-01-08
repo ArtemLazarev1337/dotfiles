@@ -1,0 +1,8 @@
+---
+- name: Full System Deployment
+  hosts: all
+  gather_facts: yes
+
+  roles:
+    - role: packages
+    - role: dotfiles

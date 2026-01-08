@@ -1,0 +1,54 @@
+---
+homebrew_formulae:
+  - stow
+  - wget
+  - tree
+  - eza
+  - bat
+  - fzf
+  - zoxide
+  - htop
+  - fastfetch
+  - watch
+  - neovim
+  - tmux
+  - git
+  - go
+  - node
+  - python@3.14
+  - openjdk@21
+  - ripgrep
+  - cloc
+  - ascii-image-converter
+  - iperf3
+  - ffmpeg
+  - yt-dlp
+
+homebrew_casks:
+  - iterm2
+  - visual-studio-code
+  - zed
+  - obsidian
+  - aerospace
+  - hammerspoon
+  - maccy
+  - betterdisplay
+  - aldente
+  - coconutbattery
+  - appcleaner
+  - keka
+  - mac-mouse-fix
+  - keyboardcleantool
+  - shottr
+  - arc
+  - zen
+  - discord
+  - docker-desktop
+  - utm
+  - bruno
+  - bitwarden
+  - netnewswire
+  - iina
+  - qbittorrent
+  - anki
+  - neohtop

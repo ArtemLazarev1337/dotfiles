@@ -1,0 +1,13 @@
+---
+- name: Update package cache
+  ansible.builtin.package:
+    name: "*"
+    state: latest
+    update_cache: true
+
+- name: Install packages on Linux
+  ansible.builtin.package:
+    name: "{{ linux_packages }}"
+    state: present
+  become: yes
+  when: linux_packages is defined and linux_packages | length > 0

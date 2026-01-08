@@ -1,0 +1,12 @@
+---
+- name: Determine OS folder for stow
+  set_fact:
+    os_directory: "{{ 'macos' if ansible_facts['system'] == 'Darwin' else 'linux' }}"
+
+- name: Link configurations with stow
+  ansible.builtin.shell:
+    cmd: "stow -t ~ -d dotfiles common {{ os_directory }}"
+  args:
+    chdir: "{{ playbook_dir }}"
+  register: stow_result
+  changed_when: '"LINK" in stow_result.stderr or "UNLINK" in stow_result.stderr'
