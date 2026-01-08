@@ -22,11 +22,15 @@ check_command() {
 
 # Install Ansible on Linux
 install_ansible_linux() {
+    echo "==> Updating package repositories..."
     if check_command apt-get; then
-        sudo apt-get update && sudo apt-get install -y ansible
+        sudo apt-get update
+        sudo apt-get install -y ansible
     elif check_command dnf; then
+        sudo dnf check-update || true
         sudo dnf install -y ansible
     elif check_command pacman; then
+        sudo pacman -Sy
         sudo pacman -S --noconfirm ansible
     else
         echo "Unsupported package manager" >&2
@@ -47,6 +51,10 @@ install_ansible_macos() {
         fi
     fi
     
+    echo "==> Updating Homebrew..."
+    brew update
+    
+    echo "==> Installing Ansible..."
     brew install ansible
 }
 
@@ -62,7 +70,6 @@ ensure_ansible() {
     
     case "$os_type" in
         macos)
-            echo "==> Installing Ansible via Homebrew..."
             install_ansible_macos
             ;;
         linux)
