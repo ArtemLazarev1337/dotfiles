@@ -40,7 +40,13 @@ install_ansible_linux() {
 
 # Install Ansible on macOS
 install_ansible_macos() {
-    if ! check_command brew; then
+    local brew_already_installed=false
+    
+    if check_command brew; then
+        brew_already_installed=true
+    fi
+    
+    if [[ "$brew_already_installed" == false ]]; then
         echo "==> Installing Homebrew..." >&2
         /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
         
@@ -49,10 +55,10 @@ install_ansible_macos() {
         elif [[ -f "/usr/local/bin/brew" ]]; then
             eval "$(/usr/local/bin/brew shellenv)"
         fi
+    else
+        echo "==> Updating Homebrew..."
+        brew update
     fi
-    
-    echo "==> Updating Homebrew..."
-    brew update
     
     echo "==> Installing Ansible..."
     brew install ansible
