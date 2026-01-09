@@ -10,7 +10,6 @@ dotfiles_packages:
   - zed
 
 homebrew_formulae:
-  - stow
   - wget
   - tree
   - eza
