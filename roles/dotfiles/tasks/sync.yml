@@ -1,0 +1,11 @@
+---
+- name: "Unlink dotfiles symlinks"
+  include_tasks: unlink.yml
+
+- name: "Git pull dotfiles"
+  command: git pull
+  args:
+    chdir: "{{ project_root }}"
+
+- name: "Link dotfiles symlinks"
+  include_tasks: link.yml
