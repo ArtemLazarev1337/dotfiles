@@ -1,4 +1,13 @@
 ---
+dotfiles_packages:
+  - aerospace
+  - git
+  - hammerspoon
+  - hushlogin
+  - iterm2
+  - neovim
+  - zsh
+
 homebrew_formulae:
   - stow
   - wget

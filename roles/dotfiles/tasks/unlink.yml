@@ -1,0 +1,17 @@
+---
+- name: Find all files in packages to unlink
+  find:
+    paths: "{{ dotfiles_dir }}/{{ item }}"
+    hidden: yes
+    recurse: yes
+    file_type: file
+  loop: "{{ dotfiles_packages }}"
+  register: found_files_to_remove
+
+- name: Remove symlinks from home directory
+  file:
+    path: "{{ ansible_facts['env']['HOME'] }}/{{ item.1.path | relpath(dotfiles_dir + '/' + item.0.item) }}"
+    state: absent
+  loop: "{{ found_files_to_remove.results | subelements('files') }}"
+  loop_control:
+    label: "Unlinking ~/{{ item.1.path | relpath(dotfiles_dir + '/' + item.0.item) }}"

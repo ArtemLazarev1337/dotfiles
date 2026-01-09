@@ -1,0 +1,16 @@
+---
+- name: Link dotfiles symlinks
+  hosts: all
+  gather_facts: false
+  any_errors_fatal: true
+  
+  pre_tasks:
+    - name: "Check if strict limit (-l) is provided"
+      fail:
+        msg: "ERROR: Specify exactly one host with -l. Current count: {{ ansible_play_hosts_all | length }}."
+      when: ansible_limit is not defined or ansible_limit == "" or ansible_play_hosts_all | length != 1
+      run_once: true
+    - setup:
+  
+  tasks:
+    - include_tasks: "{{ project_root }}/roles/dotfiles/tasks/link.yml"

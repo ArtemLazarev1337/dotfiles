@@ -1,0 +1,43 @@
+---
+- name: Find all files in packages to link
+  find:
+    paths: "{{ dotfiles_dir }}/{{ item }}"
+    hidden: yes
+    recurse: yes
+    file_type: file
+  loop: "{{ dotfiles_packages }}"
+  register: found_files_to_link
+
+- name: Ensure parent directories exist
+  file:
+    path: "{{ ansible_facts['env']['HOME'] }}/{{ item }}"
+    state: directory
+    mode: '0755'
+  loop: >-
+    {{ found_files_to_link.results | subelements('files') 
+        | map(attribute='1.path') 
+        | map('relpath', dotfiles_dir)
+        | map('regex_replace', '^[a-zA-Z0-9_\\-]+/', '')
+        | map('dirname') | unique | list }}
+  loop_control:
+    label: "Dir ~/{{ item }}"
+
+- name: Create symlinks in home directory
+  file:
+    src: "{{ item.1.path }}"
+    dest: "{{ ansible_facts['env']['HOME'] }}/{{ item.1.path | relpath(dotfiles_dir + '/' + item.0.item) }}"
+    state: link
+    force: no
+  loop: "{{ found_files_to_link.results | subelements('files') }}"
+  register: link_result
+  ignore_errors: yes
+  loop_control:
+    label: "Linking ~/{{ item.1.path | relpath(dotfiles_dir + '/' + item.0.item) }}"
+
+- name: Report existing files
+  debug:
+    msg: "SKIPPED: ~/{{ item.item.1.path | relpath(dotfiles_dir + '/' + item.item.0.item) }} already exists as a real file."
+  when: item is failed and "pointing to an existing file" not in (item.msg | default(''))
+  loop: "{{ link_result.results }}"
+  loop_control:
+    label: "{{ (item is failed) | ternary('CONFLICT: ' + item.item.1.path | basename, 'OK') }}"

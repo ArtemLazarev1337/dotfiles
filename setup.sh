@@ -4,7 +4,7 @@ set -euo pipefail
 
 readonly SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 readonly INVENTORY_FILE="${SCRIPT_DIR}/inventory/hosts.yml"
-readonly PLAYBOOK="${SCRIPT_DIR}/deploy.yml"
+readonly PLAYBOOK="${SCRIPT_DIR}/playbooks/deploy.yml"
 
 # Detect OS
 detect_os() {
