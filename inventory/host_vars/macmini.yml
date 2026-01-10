@@ -2,7 +2,6 @@
 dotfiles_packages:
   - aerospace
   - git
-  - hammerspoon
   - hushlogin
   - iterm2
   - neovim
