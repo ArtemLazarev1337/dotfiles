@@ -31,32 +31,37 @@ homebrew_formulae:
   - iperf3
   - ffmpeg
   - yt-dlp
+  - FelixKratz/formulae/borders
 
 homebrew_casks:
+  # WM
+  - nikitabobko/tap/aerospace
+
+  # Develop
   - iterm2
   - visual-studio-code
   - zed
+  - docker-desktop
+  - bruno
+
+  # QoL
   - obsidian
-  - aerospace
   - hammerspoon
   - maccy
   - betterdisplay
   - aldente
+  - shottr
+  - zen
+  - utm
+  - bitwarden
+  - netnewswire
+  - iina
+  - anki
+
+  # Utils
+  - neohtop
   - coconutbattery
   - appcleaner
   - keka
   - mac-mouse-fix
   - keyboardcleantool
-  - shottr
-  - arc
-  - zen
-  - discord
-  - docker-desktop
-  - utm
-  - bruno
-  - bitwarden
-  - netnewswire
-  - iina
-  - qbittorrent
-  - anki
-  - neohtop
