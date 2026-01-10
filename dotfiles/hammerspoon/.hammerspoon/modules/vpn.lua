@@ -24,16 +24,16 @@ function vpn.toggle(serviceName)
     if vpn.isRunning(serviceName) then
         vpn.disable(serviceName)
         hs.notify.new({
-            title = serviceName, 
+            title = serviceName,
             informativeText = "Сервис остановлен!",
-            contentImage = "/Users/artemlazarev/.hammerspoon/icons/cancel.png"
+            contentImage = "~/.hammerspoon/icons/cancel.png"
         }):send()
     else
         vpn.enable(serviceName)
         hs.notify.new({
-            title = serviceName, 
+            title = serviceName,
             informativeText = "Сервис запущен!",
-            contentImage = "/Users/artemlazarev/.hammerspoon/icons/done.png"
+            contentImage = "~/.hammerspoon/icons/done.png"
         }):send()
     end
 end
