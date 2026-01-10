@@ -9,7 +9,6 @@
     state: present
   when: homebrew_formulae is defined and homebrew_formulae | length > 0
 
-
 - name: Install Homebrew casks
   community.general.homebrew_cask:
     name: "{{ homebrew_casks }}"
