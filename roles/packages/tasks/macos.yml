@@ -3,6 +3,12 @@
   community.general.homebrew:
     update_homebrew: yes
 
+- name: Add Homebrew taps
+  community.general.homebrew_tap:
+    name: "{{ homebrew_taps }}"
+    state: present
+  when: homebrew_taps is defined and homebrew_taps | length > 0
+
 - name: Install Homebrew formulae
   community.general.homebrew:
     name: "{{ homebrew_formulae }}"

@@ -1,0 +1,1 @@
+/Users/artemlazarev/machine-setup/dotfiles/neovim/.config/nvim/init.lua

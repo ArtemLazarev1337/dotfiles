@@ -8,6 +8,10 @@ dotfiles_packages:
   - zsh
   - zed
 
+homebrew_taps:
+  - FelixKratz/formulae
+  - nikitabobko/tap
+
 homebrew_formulae:
   - wget
   - tree
