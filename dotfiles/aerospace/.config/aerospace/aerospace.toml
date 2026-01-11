@@ -137,10 +137,10 @@ on-mode-changed = []
 
     if connectionStatus is "Connected" then
         do shell script "scutil --nc stop " & quoted form of targetService
-        set notificationMessage to "VPN-сервис остановлен!"
+        set notificationMessage to "🚫 VPN-сервис остановлен!"
     else
         do shell script "scutil --nc start " & quoted form of targetService
-        set notificationMessage to "VPN-сервис запущен!"
+        set notificationMessage to "✅ VPN-сервис запущен!"
     end if
 
     tell application "System Events"
