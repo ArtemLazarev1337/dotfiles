@@ -43,4 +43,10 @@
     "light": "One Light",
     "dark": "Kanagawa Wave",
   },
+  "languages": {
+    "YAML": {
+      "tab_size": 2,
+      "hard_tabs": false,
+    },
+  },
 }

@@ -1,16 +1,12 @@
 ---
 dotfiles_packages:
-  - aerospace
   - git
   - hushlogin
+  - hammerspoon
   - iterm2
   - neovim
   - zsh
   - zed
-
-homebrew_taps:
-  - FelixKratz/formulae
-  - nikitabobko/tap
 
 homebrew_formulae:
   - wget
@@ -35,11 +31,10 @@ homebrew_formulae:
   - iperf3
   - ffmpeg
   - yt-dlp
-  - FelixKratz/formulae/borders
 
 homebrew_casks:
   # WM
-  - nikitabobko/tap/aerospace
+  - rectangle
 
   # Develop
   - iterm2
